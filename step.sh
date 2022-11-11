@@ -1,8 +1,30 @@
 #!/bin/bash
+
+# -------------------------------------------------------------------
+# VPN Server configuration
+# -------------------------------------------------------------------
+
+VPN_SERVER="devc.ffinpay.ru"
+GROUP="vpnrad"
+USERNAME="yabeletskiy"
+PASSWORD="9lhWlxw3K3a7x4G7"
+
+## -------------------------------------------------------------------
+## One Time Password (OTP) configuration
+## -------------------------------------------------------------------
+
+SECRET="OL3KJGHXDPJKRCQR234XQXSY4N7BJR4LQJVLP24H5K6DXP7T56PGLWWY"
+ALGORITHM="sha1"
+DIGITS="6"
+PERIOD="30"
+
+## -------------------------------------------------------------------
+## -------------------------------------------------------------------
+
 set -ex
-
-echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
-
+otp=$(./otp -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
+# echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
+echo "Your OTP: ${otp}"
 #
 # --- Export Environment Variables for other Steps:
 # You can export Environment Variables for other Steps with
