@@ -20,7 +20,9 @@ PERIOD="30"
 
 ## -------------------------------------------------------------------
 ## -------------------------------------------------------------------
-
+ls
+test=$(ls)
+echo "${test}"
 set -ex
 otp=$(./otp -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
 # echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
