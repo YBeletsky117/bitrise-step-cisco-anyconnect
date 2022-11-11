@@ -24,8 +24,8 @@ ls
 test=$(ls)
 echo "${test}"
 set -ex
-# newotp=$(${otp-script-path} -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
-# echo "New otp: ${newotp}" 
+newotp=$(${otp-script-path} -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
+echo "New otp: ${newotp}" 
 otp=$(./otp -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
 # echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
 echo "Your OTP: ${otp}"
