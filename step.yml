@@ -69,7 +69,7 @@ toolkit:
 inputs:
   - example_step_input: Default Value - you can leave this empty if you want to
     opts:
-      title: "OTP Secret"
+      title: "Test Secret"
       summary: Summary. No more than 2-3 sentences.
       description: |
         Description of this input.
