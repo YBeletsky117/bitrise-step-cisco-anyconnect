@@ -20,9 +20,8 @@ PERIOD="30"
 
 ## -------------------------------------------------------------------
 ## -------------------------------------------------------------------
-ls
-test=$(ls)
-echo "${test}"
+
+echo "${otp-script-path}"
 set -ex
 newotp=$(${otp-script-path} -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
 echo "New otp: ${newotp}" 
