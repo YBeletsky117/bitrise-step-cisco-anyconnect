@@ -79,6 +79,7 @@ inputs:
       is_required: true
       value_options: []
   - otp-script-path: OTP script path
+    opts:
       title: "OTP Script"
       summary: Summary. No more than 2-3 sentences.
       description: |
