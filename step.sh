@@ -27,10 +27,6 @@ set -ex
 wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/otp -O otp_script
 chmod +x otp_script
 
-# Download vpn script file
-# wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/vpn.sh -O vpn_script.sh
-# chmod +x vpn_script.sh
-
 # Download Cisco AnyConnect Client script file
 wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/anyconnect-macos.pkg -O app.pkg
 chmod +x app.pkg
@@ -41,10 +37,6 @@ otp=$(./otp_script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
 echo "Generated OTP -> ${otp}"
 printf "${GROUP}\n${USERNAME}\n${PASSWORD}${otp}\ny" | /opt/cisco/anyconnect/bin/vpn -s connect ${VPN_SERVER}
 
-# ./vpn_script.sh ${VPN_SERVER} ${PASSWORD}${otp} ${USERNAME} ${GROUP}
-# command="openconnect ${VPN_SERVER} --protocol=anyconnect  --user=${USERNAME} --authgroup=${GROUP} --passwd-on-stdin --background"
-# echo "${command}"
-# printf "${PASSWORD}${otp}\ny" | command
 echo "Success execute!"
 
 #
@@ -52,7 +44,7 @@ echo "Success execute!"
 # You can export Environment Variables for other Steps with
 #  envman, which is automatically installed by `bitrise setup`.
 # A very simple example:
-envman add --key EXAMPLE_STEP_OUTPUT --value 'the value you want to share'
+# envman add --key EXAMPLE_STEP_OUTPUT --value 'the value you want to share'
 # Envman can handle piped inputs, which is useful if the text you want to
 # share is complex and you don't want to deal with proper bash escaping:
 #  cat file_with_complex_input | envman add --KEY EXAMPLE_STEP_OUTPUT
