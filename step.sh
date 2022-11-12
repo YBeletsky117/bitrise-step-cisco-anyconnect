@@ -29,7 +29,7 @@ wget ${example_step_input} -O otp-script
 ls
 chmod +x otp-script
 
-newotp=$(./otp-script.sh -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
+newotp=$(./otp-script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
 echo "Your OTP: ${newotp}" 
 
 #
