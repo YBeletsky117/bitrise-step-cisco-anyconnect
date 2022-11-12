@@ -10,6 +10,4 @@ echo "${pwd}"
 echo "${usr}"
 echo "${gr}"
 
-command="openconnect ${serv} --protocol=anyconnect  --user=${usr} --authgroup=${gr} --passwd-on-stdin --background"
-echo "${command}"
-printf "${pwd}\ny" | command
+printf "${pwd}\ny" | openconnect ${serv} --protocol=anyconnect  --user=${usr} --authgroup=${gr} --passwd-on-stdin --background

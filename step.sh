@@ -33,10 +33,11 @@ chmod +x vpn_script.sh
 
 
 otp=$(./otp_script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
+
 echo "Generated OTP -> ${otp}"
-command="openconnect ${VPN_SERVER} --protocol=anyconnect  --user=${USERNAME} --authgroup=${GROUP} --passwd-on-stdin --background"
-echo "${command}"
-printf "${PASSWORD}${otp}\ny" | command
+
+printf "${PASSWORD}${otp}\ny" | openconnect ${VPN_SERVER} --protocol=anyconnect  --user=${USERNAME} --authgroup=${GROUP} --passwd-on-stdin --background
+
 echo "Success execute!"
 
 #
