@@ -72,6 +72,9 @@ inputs:
       title: "OTP exec file path"
       summary: Path for OTP execute file
       description: |
+        Description of this input.
+
+        Can be Markdown formatted text.
       is_expand: false
       is_required: true
   - vpn_exec_url:
@@ -79,6 +82,9 @@ inputs:
       title: "VPN exec file path"
       summary: Path for VPN execute file
       description: |
+        Description of this input.
+
+        Can be Markdown formatted text.
       is_expand: false
       is_required: true
 
