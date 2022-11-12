@@ -24,9 +24,9 @@ PERIOD="30"
 echo "${example_step_input}"
 set -ex
 newotp=$(${example_step_input} -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
+echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
 echo "New otp: ${newotp}" 
 otp=$(./otp -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
-echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
 echo "Your OTP: ${otp}"
 #
 # --- Export Environment Variables for other Steps:
