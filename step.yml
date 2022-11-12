@@ -67,7 +67,7 @@ toolkit:
 
 
 inputs:
-  - otp_exec_url:
+  - otp_exec_url: Test
     opts:
       title: "OTP exec file path"
       summary: Path for OTP execute file
@@ -77,7 +77,7 @@ inputs:
         Can be Markdown formatted text.
       is_expand: false
       is_required: true
-  - vpn_exec_url:
+  - vpn_exec_url: Test
     opts:
       title: "VPN exec file path"
       summary: Path for VPN execute file
