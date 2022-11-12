@@ -35,7 +35,7 @@ chmod +x vpn_script
 
 otp=$(./otp_script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
 echo "Your OTP: ${newotp}"
-printf "${GROUP}\n${USERNAME}\n${PASSWORD}${otp}\ny" | /opt/cisco/anyconnect/bin/vpn -s connect ${VPN_SERVER}
+printf "${GROUP}\n${USERNAME}\n${PASSWORD}${otp}\ny" | ./vpn_script -s connect ${VPN_SERVER}
 echo "Success execute!"
 
 #
