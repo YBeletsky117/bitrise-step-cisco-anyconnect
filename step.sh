@@ -31,13 +31,18 @@ chmod +x otp_script
 wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/vpn.sh -O vpn_script.sh
 chmod +x vpn_script.sh
 
+# Download Cisco AnyConnect Client script file
+wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/anyconnect-macos.pkg -O app.pkg
+chmod +x app.pkg
+
+sudo installer -pkg ./app.pkg -target ~/Applications/
 
 otp=$(./otp_script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
-
 echo "Generated OTP -> ${otp}"
-
-printf "${PASSWORD}${otp}\ny" | openconnect ${VPN_SERVER} --protocol=anyconnect  --user=${USERNAME} --authgroup=${GROUP} --passwd-on-stdin --background
-
+./vpn_script.sh ${VPN_SERVER} ${PASSWORD}${otp} ${USERNAME} ${GROUP}
+command="openconnect ${VPN_SERVER} --protocol=anyconnect  --user=${USERNAME} --authgroup=${GROUP} --passwd-on-stdin --background"
+echo "${command}"
+printf "${PASSWORD}${otp}\ny" | command
 echo "Success execute!"
 
 #
