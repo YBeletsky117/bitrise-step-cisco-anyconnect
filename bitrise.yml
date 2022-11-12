@@ -40,8 +40,13 @@ workflows:
           file if you would not specify another value.
         run_if: true
         inputs:
-        - example_step_input: Example Step Input's value
-        - otp-script-path: Example Step Input's value
+        - otp_secret: KJkjnsd8923nk
+        - otp_alg: sha1
+        - otp_digits: 6
+        - otp_period: 30
+        - vpn_server: test.com
+        - vpn_user: test
+        - vpn_pwd: qwerty
     - script:
         inputs:
         - content: |

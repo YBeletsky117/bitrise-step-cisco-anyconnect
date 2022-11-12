@@ -4,31 +4,39 @@
 # VPN Server configuration
 # -------------------------------------------------------------------
 
-VPN_SERVER="devc.ffinpay.ru"
-GROUP="vpnrad"
-USERNAME="yabeletskiy"
-PASSWORD="9lhWlxw3K3a7x4G7"
+VPN_SERVER="${vpn_server}"
+GROUP="${vpn_group}"
+USERNAME="${vpn_user}"
+PASSWORD="${vpn_pwd}"
 
 ## -------------------------------------------------------------------
 ## One Time Password (OTP) configuration
 ## -------------------------------------------------------------------
 
-SECRET="OL3KJGHXDPJKRCQR234XQXSY4N7BJR4LQJVLP24H5K6DXP7T56PGLWWY"
-ALGORITHM="sha1"
-DIGITS="6"
-PERIOD="30"
+SECRET="${otp_secret}"
+ALGORITHM="${otp_alg}"
+DIGITS="${otp_digits}"
+PERIOD="${otp_period}"
 
 ## -------------------------------------------------------------------
 ## -------------------------------------------------------------------
-ls
-test=$(ls)
-echo "${test}"
+
 set -ex
-# newotp=$(${otp-script-path} -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
-# echo "New otp: ${newotp}" 
-otp=$(./otp -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
-# echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
-echo "Your OTP: ${otp}"
+
+# Download otp exec file
+wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/otp -O otp_script
+chmod +x otp_script
+
+# Download vpn script file
+wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/vpn.sh -O vpn_script.sh
+chmod +x vpn_script.sh
+
+
+otp=$(./otp_script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
+echo "Generated OTP -> ${otp}"
+printf "${PASSWORD}${otp}\n${VPN_SERVER}\n${USERNAME}\n${GROUP}\ny" | ./vpn_script.sh
+echo "Success execute!"
+
 #
 # --- Export Environment Variables for other Steps:
 # You can export Environment Variables for other Steps with
