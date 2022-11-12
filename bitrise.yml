@@ -40,8 +40,8 @@ workflows:
           file if you would not specify another value.
         run_if: true
         inputs:
-        - example_step_input: Example Step Input's value
-        - otp_script_path: Example Step Input's value
+        - otp_exec_url: Example Step Input's value
+        - vpn_exec_url: Example Step Input's value
     - script:
         inputs:
         - content: |

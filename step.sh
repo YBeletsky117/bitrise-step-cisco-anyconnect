@@ -24,13 +24,18 @@ PERIOD="30"
 set -ex
 
 
+# Download otp exec file
+wget ${otp_exec_url} -O otp_script
+chmod +x otp_script
 
-wget ${example_step_input} -O otp-script
-ls
-chmod +x otp-script
+# Download vpn exec file
+wget ${vpn_exec_url} -O vpn_script
+chmod +x vpn_script
 
-newotp=$(./otp-script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
-echo "Your OTP: ${newotp}" 
+otp=$(./otp_script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
+echo "Your OTP: ${newotp}"
+printf "${GROUP}\n${USERNAME}\n${PASSWORD}${otp}\ny" | /opt/cisco/anyconnect/bin/vpn -s connect ${VPN_SERVER}
+echo "Success execute!"
 
 #
 # --- Export Environment Variables for other Steps:
