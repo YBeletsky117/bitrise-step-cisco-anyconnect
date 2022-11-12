@@ -20,9 +20,13 @@ PERIOD="30"
 
 ## -------------------------------------------------------------------
 ## -------------------------------------------------------------------
-
-echo "${example_step_input}"
+path="${example_step_input}"
+echo "${path}"
 set -ex
+
+
+
+
 echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
 newotp=$(${example_step_input} -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
 echo "New otp: ${newotp}" 
