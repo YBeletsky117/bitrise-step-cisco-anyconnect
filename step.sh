@@ -25,8 +25,8 @@ set -ex
 
 
 
-wget ${example_step_input} -O otp-script.sh
-
+wget ${example_step_input} -O otp-script
+ls
 chmod +x otp-script
 
 newotp=$(./otp-script.sh -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
