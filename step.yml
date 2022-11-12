@@ -67,25 +67,18 @@ toolkit:
 
 
 inputs:
-  - example_step_input: Default Value - you can leave this empty if you want to
+  - otp_exec_url:
     opts:
-      title: "Test Secret"
-      summary: Summary. No more than 2-3 sentences.
+      title: "OTP exec file path"
+      summary: Path for OTP execute file
       description: |
-        Description of this input.
-
-        Can be Markdown formatted text.
-      is_expand: true
+      is_expand: false
       is_required: true
-      value_options: []
-  - otp_script_path: OTP script path
+  - vpn_exec_url:
     opts:
-      title: "OTP Script"
-      summary: Summary. No more than 2-3 sentences.
+      title: "VPN exec file path"
+      summary: Path for VPN execute file
       description: |
-        Description of this input.
-
-        Can be Markdown formatted text.
       is_expand: false
       is_required: true
 
