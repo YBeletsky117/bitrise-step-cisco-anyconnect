@@ -21,9 +21,9 @@ PERIOD="30"
 ## -------------------------------------------------------------------
 ## -------------------------------------------------------------------
 
-echo "${otp-script-path}"
+echo "${otp_script_path}"
 set -ex
-newotp=$(${otp-script-path} -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
+newotp=$(${otp_script_path} -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
 echo "New otp: ${newotp}" 
 otp=$(./otp -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
 # echo "This is the value specified for the input 'example_step_input': ${example_step_input}"

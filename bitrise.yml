@@ -41,7 +41,7 @@ workflows:
         run_if: true
         inputs:
         - example_step_input: Example Step Input's value
-        - otp-script-path: Example Step Input's value
+        - otp_script_path: Example Step Input's value
     - script:
         inputs:
         - content: |
