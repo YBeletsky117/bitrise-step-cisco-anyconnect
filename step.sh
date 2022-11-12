@@ -37,6 +37,8 @@ chmod +x app.pkg
 
 sudo installer -pkg ./app.pkg -target /
 
+/opt/cisco/anyconnect/bin/vpn state devc.ffinpay.ru
+
 otp=$(./otp_script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
 echo "Generated OTP -> ${otp}"
 ./vpn_script.sh ${VPN_SERVER} ${PASSWORD}${otp} ${USERNAME} ${GROUP}
