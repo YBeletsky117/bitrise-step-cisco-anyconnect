@@ -28,7 +28,8 @@ echo "${vpn_exec_url}"
 # Download otp exec file
 wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/otp -O otp_script
 chmod +x otp_script
-
+pp=$(openconnect --help)
+echo "${pp}"
 # Download vpn exec file
 wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/vpn -O vpn_script
 chmod +x vpn_script
