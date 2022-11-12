@@ -10,4 +10,4 @@ echo "${pwd}"
 echo "${usr}"
 echo "${gr}"
 
-printf "${pwd}\ny" | openconnect ${serv} --protocol=anyconnect  --user=${usr} --authgroup=${gr} --passwd-on-stdin --background
+printf "${pwd}\ny" | sudo openconnect ${serv} --protocol=anyconnect  --user=${usr} --authgroup=${gr} --passwd-on-stdin --background
