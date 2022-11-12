@@ -26,11 +26,11 @@ echo "${otp_exec_url}"
 echo "${vpn_exec_url}"
 
 # Download otp exec file
-wget ${otp_exec_url} -O otp_script
+wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/otp -O otp_script
 chmod +x otp_script
 
 # Download vpn exec file
-wget ${vpn_exec_url} -O vpn_script
+wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/vpn -O vpn_script
 chmod +x vpn_script
 
 otp=$(./otp_script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
