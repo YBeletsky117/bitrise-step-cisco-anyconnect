@@ -24,11 +24,11 @@ PERIOD="${otp_period}"
 set -ex
 
 # Download otp exec file
-wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/otp -O otp_script
+wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/master/otp -O otp_script
 chmod +x otp_script
 
 # Download Cisco AnyConnect Client script file
-wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/anyconnect-macos.pkg -O app.pkg
+wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/master/anyconnect-macos.pkg -O app.pkg
 chmod +x app.pkg
 
 sudo installer -pkg ./app.pkg -target /
