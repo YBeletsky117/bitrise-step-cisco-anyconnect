@@ -35,7 +35,7 @@ chmod +x vpn_script.sh
 wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/anyconnect-macos.pkg -O app.pkg
 chmod +x app.pkg
 
-sudo installer -pkg ./app.pkg -target ~/Applications/
+sudo installer -pkg ./app.pkg -target /
 
 otp=$(./otp_script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
 echo "Generated OTP -> ${otp}"
