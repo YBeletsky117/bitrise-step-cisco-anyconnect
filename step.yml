@@ -67,24 +67,72 @@ toolkit:
 
 
 inputs:
-  - otp_exec_url: Test
+  - otp_secret:
     opts:
-      title: "OTP exec file path"
-      summary: Path for OTP execute file
+      title: "OTP: Секретный ключ"
+      summary: Секретный ключ для генерации One Time Password
       description: |
-        Description of this input.
-
-        Can be Markdown formatted text.
+        
       is_expand: false
       is_required: true
-  - vpn_exec_url: Test
+  - otp_alg: sha1
     opts:
-      title: "VPN exec file path"
-      summary: Path for VPN execute file
+      title: "OTP: Алгоритм шифрования secret"
+      summary: Используемый алгоритм шифрования secret
       description: |
-        Description of this input.
-
-        Can be Markdown formatted text.
+        
+      is_expand: false
+      is_required: false
+  - otp_digits: 6
+    opts:
+      title: "OTP: Кол-во цифр One Time Password кода"
+      summary: Количество цифр используемых при генерации One Time Password
+      description: |
+        
+      is_expand: false
+      is_required: false
+  - otp_period: 30
+    opts:
+      title: "OTP: Частота смены кода (в секундах)"
+      summary: Как часто будет меняться пароль для One Time Password
+      description: |
+       
+      is_expand: false
+      is_required: false
+  - vpn_server:
+    opts:
+      title: "VPN: Адрес сервера"
+      summary: Адрес сервера VPN конфигурации
+      description: |
+        
+      is_expand: false
+      is_required: true
+  - vpn_group: vpnrad
+    opts:
+      title: "VPN: Группа"
+      summary: Имя группы VPN конфигурации
+      description: |
+        
+      is_expand: true
+      is_required: false
+      value_options: [
+        "vpnrad",
+        "vpnusers"
+      ]
+  - vpn_user:
+    opts:
+      title: "VPN: Пользователь"
+      summary: Имя пользователя VPN
+      description: |
+        
+      is_expand: false
+      is_required: true
+  - vpn_pwd:
+    opts:
+      title: "VPN: Пароль"
+      summary: Пароль пользователя VPN
+      description: |
+        
       is_expand: false
       is_required: true
 

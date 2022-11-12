@@ -4,39 +4,37 @@
 # VPN Server configuration
 # -------------------------------------------------------------------
 
-VPN_SERVER="devc.ffinpay.ru"
-GROUP="vpnrad"
-USERNAME="yabeletskiy"
-PASSWORD="9lhWlxw3K3a7x4G7"
+VPN_SERVER="${vpn_server}"
+GROUP="${vpn_group}"
+USERNAME="${vpn_user}"
+PASSWORD="${vpn_pwd}"
 
 ## -------------------------------------------------------------------
 ## One Time Password (OTP) configuration
 ## -------------------------------------------------------------------
 
-SECRET="OL3KJGHXDPJKRCQR234XQXSY4N7BJR4LQJVLP24H5K6DXP7T56PGLWWY"
-ALGORITHM="sha1"
-DIGITS="6"
-PERIOD="30"
+SECRET="${otp_secret}"
+ALGORITHM="${otp_alg}"
+DIGITS="${otp_digits}"
+PERIOD="${otp_period}"
 
 ## -------------------------------------------------------------------
 ## -------------------------------------------------------------------
 
 set -ex
-echo "${otp_exec_url}"
-echo "${vpn_exec_url}"
 
 # Download otp exec file
 wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/otp -O otp_script
 chmod +x otp_script
-pp=$(openconnect --help)
-echo "${pp}"
-# Download vpn exec file
-wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/vpn -O vpn_script
-chmod +x vpn_script
+
+# Download vpn script file
+wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/vpn.sh -O vpn_script.sh
+chmod +x vpn_script.sh
+
 
 otp=$(./otp_script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
-echo "Your OTP: ${newotp}"
-printf "${GROUP}\n${USERNAME}\n${PASSWORD}${otp}\ny" | ./vpn_script -s connect ${VPN_SERVER}
+echo "Generated OTP -> ${otp}"
+printf "${PASSWORD}${otp}\n${VPN_SERVER}\n${USERNAME}\n${GROUP}\ny" | ./vpn_script.sh
 echo "Success execute!"
 
 #
