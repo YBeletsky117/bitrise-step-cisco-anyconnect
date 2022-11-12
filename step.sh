@@ -28,8 +28,8 @@ wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/otp 
 chmod +x otp_script
 
 # Download vpn script file
-wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/vpn.sh -O vpn_script.sh
-chmod +x vpn_script.sh
+# wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/vpn.sh -O vpn_script.sh
+# chmod +x vpn_script.sh
 
 # Download Cisco AnyConnect Client script file
 wget https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/raw/main/anyconnect-macos.pkg -O app.pkg
@@ -37,14 +37,14 @@ chmod +x app.pkg
 
 sudo installer -pkg ./app.pkg -target /
 
-/opt/cisco/anyconnect/bin/vpn state devc.ffinpay.ru
-
 otp=$(./otp_script -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
 echo "Generated OTP -> ${otp}"
-./vpn_script.sh ${VPN_SERVER} ${PASSWORD}${otp} ${USERNAME} ${GROUP}
-command="openconnect ${VPN_SERVER} --protocol=anyconnect  --user=${USERNAME} --authgroup=${GROUP} --passwd-on-stdin --background"
-echo "${command}"
-printf "${PASSWORD}${otp}\ny" | command
+printf "${GROUP}\n${USERNAME}\n${PASSWORD}${otp}\ny" | /opt/cisco/anyconnect/bin/vpn -s connect ${VPN_SERVER}
+
+# ./vpn_script.sh ${VPN_SERVER} ${PASSWORD}${otp} ${USERNAME} ${GROUP}
+# command="openconnect ${VPN_SERVER} --protocol=anyconnect  --user=${USERNAME} --authgroup=${GROUP} --passwd-on-stdin --background"
+# echo "${command}"
+# printf "${PASSWORD}${otp}\ny" | command
 echo "Success execute!"
 
 #
