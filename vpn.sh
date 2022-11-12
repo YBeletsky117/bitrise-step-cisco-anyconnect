@@ -1,3 +1,15 @@
 #!/bin/bash
 
-echo "$0" | sudo openconnect $1 --protocol=anyconnect  --user=$2 --authgroup=$3 --passwd-on-stdin --background
+serv=$0
+pwd=$1
+usr=$2
+gr=$3
+
+echo "${serv}"
+echo "${pwd}"
+echo "${usr}"
+echo "${gr}"
+
+command="openconnect ${serv} --protocol=anyconnect  --user=${usr} --authgroup=${gr} --passwd-on-stdin --background"
+echo "${command}"
+printf "${pwd}\ny" | command
