@@ -20,18 +20,18 @@ PERIOD="30"
 
 ## -------------------------------------------------------------------
 ## -------------------------------------------------------------------
-path="${example_step_input}/.test"
-echo "${path}"
+
 set -ex
 
 
 
+wget ${example_step_input} -O otp-script.sh
 
-echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
-newotp=$(${example_step_input} -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
-echo "New otp: ${newotp}" 
-otp=$(./otp -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
-echo "Your OTP: ${otp}"
+chmod +x otp-script
+
+newotp=$(./otp-script.sh -s ${SECRET} -a ${ALGORITHM} -d ${DIGITS} -p ${PERIOD})
+echo "Your OTP: ${newotp}" 
+
 #
 # --- Export Environment Variables for other Steps:
 # You can export Environment Variables for other Steps with
