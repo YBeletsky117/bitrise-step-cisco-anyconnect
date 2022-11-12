@@ -8,11 +8,11 @@
 # - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
 
 title: |-
-  Cisco AnyConnect
+  FFin Bank VPN
 summary: |
-  Cisco AnyConnect client
+  Freedom Finance VPN
 description: |
-  Cisco Anyconnect is used to connect to existing virtual private networks or VPNs.
+  Freedom Finance VPN is used to connect to existing virtual private networks or VPNs.
 website: https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect
 source_code_url: https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect
 support_url: https://github.com/YBeletsky117/bitrise-step-cisco-anyconnect/issues
@@ -137,11 +137,3 @@ inputs:
       is_required: true
 
 outputs:
-  - EXAMPLE_STEP_OUTPUT:
-    opts:
-      title: "Example Step Output"
-      summary: Summary. No more than 2-3 sentences.
-      description: |
-        Description of this output.
-
-        Can be Markdown formatted text.
