@@ -67,13 +67,13 @@ toolkit:
 
 
 inputs:
-  - otp_secret:
+  - otp_secret: "$OTP_SECRET"
     opts:
       title: "OTP: Секретный ключ"
       summary: Секретный ключ для генерации One Time Password
       description: |
         
-      is_expand: false
+      is_expand: true
       is_required: true
   - otp_alg: sha1
     opts:
@@ -81,7 +81,7 @@ inputs:
       summary: Используемый алгоритм шифрования secret
       description: |
         
-      is_expand: false
+      is_expand: true
       is_required: false
   - otp_digits: 6
     opts:
@@ -89,7 +89,7 @@ inputs:
       summary: Количество цифр используемых при генерации One Time Password
       description: |
         
-      is_expand: false
+      is_expand: true
       is_required: false
   - otp_period: 30
     opts:
@@ -97,15 +97,15 @@ inputs:
       summary: Как часто будет меняться пароль для One Time Password
       description: |
        
-      is_expand: false
+      is_expand: true
       is_required: false
-  - vpn_server:
+  - vpn_server: "$VPN_SERVER"
     opts:
       title: "VPN: Адрес сервера"
       summary: Адрес сервера VPN конфигурации
       description: |
         
-      is_expand: false
+      is_expand: true
       is_required: true
   - vpn_group: vpnrad
     opts:
@@ -119,21 +119,21 @@ inputs:
         "vpnrad",
         "vpnusers"
       ]
-  - vpn_user:
+  - vpn_user: "$VPN_USER"
     opts:
       title: "VPN: Пользователь"
       summary: Имя пользователя VPN
       description: |
         
-      is_expand: false
+      is_expand: true
       is_required: true
-  - vpn_pwd:
+  - vpn_pwd: "$VPN_PASSWORD"
     opts:
       title: "VPN: Пароль"
       summary: Пароль пользователя VPN
       description: |
         
-      is_expand: false
+      is_expand: true
       is_required: true
 
 outputs:
