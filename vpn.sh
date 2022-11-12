@@ -1,9 +1,9 @@
 #!/bin/bash
 
-serv=$1
-pwd=$2
-usr=$3
-gr=$4
+serv=$0
+pwd=$1
+usr=$2
+gr=$3
 
 echo "${serv}"
 echo "${pwd}"
