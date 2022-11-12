@@ -22,7 +22,8 @@ PERIOD="30"
 ## -------------------------------------------------------------------
 
 set -ex
-
+echo "${otp_exec_url}"
+echo "${vpn_exec_url}"
 
 # Download otp exec file
 wget ${otp_exec_url} -O otp_script
